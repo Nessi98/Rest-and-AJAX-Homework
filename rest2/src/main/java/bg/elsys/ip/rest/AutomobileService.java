@@ -19,10 +19,10 @@ public class AutomobileService {
 
 		public AutomobileService() {
 			for(int i = 0; i < 10; i ++){
-				automobileList.add(new Automobile("Honda " + i, "Accord Tourer", "pink", "bla"));
-				automobileList.add(new Automobile("Mercedes " + i, "...", "blue", "..."));
-				automobileList.add(new Automobile("Nissan " + i, "Primera", "purple", "asdad"));
-				automobileList.add(new Automobile("Mercedes " + i, "...", "black", "..."));
+				automobileList.add(new Automobile("Honda " + i, "Accord Tourer", "pink", "pink"));
+				automobileList.add(new Automobile("Mercedes " + i, "...", "....", "blue"));
+				automobileList.add(new Automobile("Nissan " + i, "Primera", "....", "purple"));
+				automobileList.add(new Automobile("Audi " + i, "...", "....", "black"));
 			}
 		}
 		
@@ -39,7 +39,6 @@ public class AutomobileService {
 
 			return response;
 		}
-
 		
 		public void brandFilter(String brand){
 			automobileList = automobileList.stream().filter((u) -> u.getBrand().equals(brand) || brand == null)

@@ -13,11 +13,11 @@ public class Automobile {
 	public Automobile(){
 		this.brand = "";
 		this.model = "";
-		this.color = "";
 		this.engineType = "";
+		this.color = "";
 	}
 	
-	public Automobile(String brand, String model, String color, String engineType){
+	public Automobile(String brand, String model, String engineType, String color){
 		super();
 		this.brand = brand;
 		this.model = model;

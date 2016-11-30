@@ -5,6 +5,19 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="application/javascript" src="scripts.js"></script>
 		<title>Automobiles</title>
+		<style>
+			table {
+    			border-collapse: collapse;
+    			width: 100%;
+			}
+
+			th, td {
+    			text-align: left;
+    			padding: 8px;
+			}
+
+			tr:nth-child(even){background-color: #f2f2f2}
+		</style>
 	</head>
 	
 	<body>
@@ -24,6 +37,13 @@
 			<input id="filterColor" type="text" placeholder="Color">
 			<button id="filter">Filter</button>
 		</form>
-		<table id="automobilesTable"></table>
+		<table id="automobilesTable">
+		  <tr>
+    		<th>Brand</th>
+    		<th>Model</th>
+    		<th>Engine Type</th>
+    		<th>Color </th>
+  			</tr>
+  		</table>
 	</body>
 </html>

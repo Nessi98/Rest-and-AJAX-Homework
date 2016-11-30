@@ -54,7 +54,7 @@ function getData(){
 }
 
 $(document).ready(function() {
-	getData();
+
 	$("#addAutomobile").click(function(){
 		$.post({
 			url: "http://localhost:8080/rest/api/automobiles",
@@ -66,8 +66,6 @@ $(document).ready(function() {
 				color: $("#newColor").val()
 			})
 		});
-		done = false;
-		getData();
 	});
 	
 	$("#filter").submit(function(e){
@@ -77,7 +75,18 @@ $(document).ready(function() {
 		filterEngineType = $("#filterEngineType").val();
 		filterColor = $("#filterColor").val();
 		
-		$("#automobilesTable").empty();
+		 var tr = $("tr");
+		 for (i = 0; i < tr.length; i++) {
+			 td = tr[i].getElementsByTagName("td")[0];
+			 if(td){
+				 if(td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					 tr[i].style.display = "";
+				 }else{
+					 tr[i].style.display = "none";
+				 }
+			 }
+		 }
+		//$("#automobilesTable").empty();
 		current_page = 0;
 		done = false;
 		getData();
