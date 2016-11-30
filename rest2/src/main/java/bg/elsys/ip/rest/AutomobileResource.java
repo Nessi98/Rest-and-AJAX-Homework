@@ -22,12 +22,17 @@ public class AutomobileResource {
 	@ApiOperation(value = "get  all automobiles")
 	@Produces(MediaType.APPLICATION_JSON)
 	public PagedResponse getAutomobiles(@QueryParam("page") @DefaultValue("0") int page, 
-			@QueryParam("perPage") @DefaultValue("12") int perPage, @QueryParam("with-name") String withBrand) {
-
-		AutomobileService automobileService = AutomobileService.getInstance();
-		PagedResponse automobilesInPages = automobileService.getAutomobilesInPagesFiltered(page, perPage, withBrand);
+			@QueryParam("perPage") @DefaultValue("12") int perPage, @QueryParam("brand") String withBrand, @QueryParam("model") String withModel,
+			@QueryParam("engineType") String withEngineType, @QueryParam("color") String withColor) {
 		
-		return automobilesInPages;
+		AutomobileService automobileService = AutomobileService.getInstance();
+		automobileService.brandFilter(withBrand);
+		automobileService.modelFilter(withModel);
+		automobileService.engineTypeFilter(withEngineType);
+		automobileService.colorFilter(withColor);
+		
+		
+		return automobileService.getPagedResponse(page, perPage);
 	}
 	public Response getAutomobile() {
 		

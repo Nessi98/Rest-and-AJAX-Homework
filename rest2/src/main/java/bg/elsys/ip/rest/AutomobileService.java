@@ -29,11 +29,10 @@ public class AutomobileService {
 		public void addAutomobile(Automobile automobile) {
 			automobileList.add(automobile);
 		}
-		
-		public PagedResponse getAutomobilesInPagesFiltered(int page, int perPage, String withBrand) {
+
+		public PagedResponse getPagedResponse(int page, int perPage) {
 			long previousEntries = page * perPage;
-			List<Automobile> pageOfAutomobiles = automobileList.stream().filter((u) -> u.getBrand().equals(withBrand) || withBrand == null)
-					.skip(previousEntries).limit(perPage).collect(Collectors.toList());
+			List<Automobile> pageOfAutomobiles = automobileList.stream().skip(previousEntries).limit(perPage).collect(Collectors.toList());
 
 			int totalPages = (int) Math.ceil(((double) automobileList.size()) / perPage);
 			PagedResponse response = new PagedResponse(pageOfAutomobiles, page, totalPages);
@@ -41,6 +40,26 @@ public class AutomobileService {
 			return response;
 		}
 
+		
+		public void brandFilter(String brand){
+			automobileList = automobileList.stream().filter((u) -> u.getBrand().equals(brand) || brand == null)
+					.collect(Collectors.toList());
+		}
+		
+		public void modelFilter(String model){
+			automobileList =  automobileList.stream().filter((u) -> u.getModel().equals(model) || model == null)
+					.collect(Collectors.toList());
+		}
+		public void engineTypeFilter(String engineType){
+			automobileList = automobileList.stream().filter((u) -> u.getEngineType().equals(engineType) || engineType == null)
+					.collect(Collectors.toList());
+		}
+		
+		public void colorFilter(String color){
+			automobileList =  automobileList.stream().filter((u) -> u.getColor().equals(color) || color == null)
+					.collect(Collectors.toList());
+		}
+		
 		public List<Automobile> getAutomobiles() {
 			return Collections.unmodifiableList(automobileList);
 		}

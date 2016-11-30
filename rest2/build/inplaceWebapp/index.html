@@ -3,22 +3,27 @@
 	<head>
 		<meta charset="UTF-8">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script type="text/javascript" src="scripts.js"></script>
+		<script type="application/javascript" src="scripts.js"></script>
 		<title>Automobiles</title>
 	</head>
 	
 	<body>
 		<form>
-  			Brand:<br>
-  			<input id="newBrand" type="text" name="brand"><br>
-  			Model:<br>
-  			<input id="newModel" type="text" name="model"><br>
-  			Engine Type:<br>
-  			<input id="newEngineType" type="text" name="engineType"><br>
-  			Color:<br>
-  			<input id="newColor" type="text" name="color">
+
+  			<input id="newBrand" type="text" placeholder="Brand">
+  			<input id="newModel" type="text" placeholder="Model">
+  			<input id="newEngineType" type="text" placeholder="Engine Type">
+  			<input id="newColor" type="text" placeholder="Color">
+  			<button id="addAutomobile">Add Automobile</button><br>
 		</form> 
-		<button id="button">Add Automobile</button>
+		
+		<form id="filter">
+			<input id="filterBrand" type="text" placeholder="Brand">
+			<input id="filterModel" type="text" placeholder="Model">
+			<input id="filterEngineType" type="text" placeholder="Engine Type">
+			<input id="filterColor" type="text" placeholder="Color">
+			<button id="filter">Filter</button>
+		</form>
 		<table id="automobilesTable"></table>
 	</body>
 </html>
